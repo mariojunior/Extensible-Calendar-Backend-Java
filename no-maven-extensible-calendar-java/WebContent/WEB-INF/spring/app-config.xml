@@ -13,29 +13,13 @@
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security-3.1.xsd
 		http://www.springframework.org/schema/context
-		http://www.springframework.org/schema/context/spring-context-3.1.xsd"
-		>
-	
-<!--    xmlns:tx="http://www.springframework.org/schema/tx"-->
-<!--	http://www.springframework.org/schema/tx -->
-<!--	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"-->
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	
 	
 	<!-- Enable annotation-based configuration. -->
 	<context:annotation-config />
 	<context:component-scan base-package="com.extensible" />
 	
-	
-	<!-- property file configuration -->
-<!--	<context:property-placeholder location="/WEB-INF/spring.properties" />-->
-	
-	
-	<!-- Persistence Session Factory-->
-<!--	<bean id="sessionFactory" -->
-<!--		  	class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"-->
-<!--			p:dataSource-ref="dataSource" p:packagesToScan="com.extensible.model"-->
-<!--			p:configLocation="/WEB-INF/hibernate.cfg.xml"/>-->
-
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource">
 			<ref bean="dataSource"/>
@@ -66,11 +50,6 @@
 				p:maxPoolSize="100"
 				p:maxStatements="50"
 				p:minPoolSize="10" />
-<!--				p:jdbcUrl="jdbc:hsqldb:hsql://localhost"-->
-<!--				p:driverClass="${app.jdbc.driverClassName}"-->
-<!--				p:jdbcUrl="${app.jdbc.url}"-->
-<!--				p:user="${app.jdbc.username}"-->
-<!--				p:password="${app.jdbc.password}"-->
 
 	<!-- Declare a transaction manager-->
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager" 
@@ -78,6 +57,5 @@
 	
 	<!-- Enable annotation style of managing transactions -->
 	<tx:annotation-driven transaction-manager="transactionManager" />	
-	
 	
 </beans>

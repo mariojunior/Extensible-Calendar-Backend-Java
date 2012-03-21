@@ -48,7 +48,7 @@ public class Calendar implements Serializable
 	private Boolean isHidden;
 	
 	@XStreamAlias("events")
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER) //EAGER only in samples! Not on production/real world
 	private List<Event> events;
 	
 	
